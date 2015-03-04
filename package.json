@@ -8,7 +8,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "git://github.com/lujintan/clitookit.git"
+        "url": "git://github.com/lujintan/clitoolkit.git"
     },
     "keywords": [
         "toolkit",
@@ -17,11 +17,11 @@
     ],
     "auth": "lujintan",
     "email": "yingxuetan@163.com",
-    "license": "https://github.com/lujintan/clitookit/blob/master/LICENSE",
+    "license": "https://github.com/lujintan/clitoolkit/blob/master/LICENSE",
     "bugs": {
-        "url": "https://github.com/lujintan/clitookit/issues"
+        "url": "https://github.com/lujintan/clitoolkit/issues"
     },
-    "homepage": "https://github.com/lujintan/clitookit",
+    "homepage": "https://github.com/lujintan/clitoolkit",
     "dependencies": {
         "commander": "2.6.0",
         "q": "1.2.0"

@@ -1,0 +1,26 @@
+{
+    "name": "clitoolkit",
+    "version": "0.0.1",
+    "description": "The command line toolkit",
+    "main": "src/main.js",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/lujintan/clitookit.git"
+    },
+    "keywords": [
+        "toolkit",
+        "command",
+        "cli"
+    ],
+    "auth": "lujintan",
+    "email": "yingxuetan@163.com",
+    "license": "https://github.com/lujintan/clitookit/blob/master/LICENSE",
+    "bugs": {
+        "url": "https://github.com/lujintan/clitookit/issues"
+    },
+    "homepage": "https://github.com/lujintan/clitookit",
+    "dependencies": {
+        "commander": "2.6.0",
+        "q": "1.2.0"
+    }
+}

@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+var cmd = require('commander');
+var main = require('../src/main.js');
+
+main.init({
+    plugin: [
+        'wasai',
+        'oo'
+    ],
+    cli: {
+        'testb': {
+            desc: 'test b',
+            commands: ['wasai']
+        },
+        'testa': {
+            desc: 'test a',
+            commands: ['testb', 'oo.js']
+        }
+    }
+}, process.argv);

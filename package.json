@@ -1,8 +1,11 @@
 {
     "name": "clitoolkit",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "The command line toolkit",
     "main": "src/main.js",
+    "scripts": {
+        "test": "./test/test --help"
+    },
     "repository": {
         "type": "git",
         "url": "git://github.com/lujintan/clitookit.git"

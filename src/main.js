@@ -8,7 +8,7 @@ module.exports = {
         var clis = conf.clis || {};
 
         //register all the plugins
-        PluginEngine.init(plugins);
+        PluginEngine.init(plugins, conf.pluginBase);
 
         //combine the commands
         CommandEngine.combine(clis);

@@ -3,8 +3,11 @@ var CommandEngine = require('./CommandEngine.js');
 
 var _currentCmd = null;
 var _flagHelp = false;
+var _proArg = [];
+var pro;
 
 var _init = function(version, proArg){
+    _proArg = proArg;
     //set the command version for display
     if (version) {
         program.version(version);
@@ -21,29 +24,33 @@ var _init = function(version, proArg){
         }
     }
 
+    pro = program;
     if (!targetCmd) {
         //get command list
         var cmdList = CommandEngine.getCmdList();
-        program.usage('[command] [option]');
+        pro.usage('<command> [option]');
         cmdList.forEach(function(cmd, index){
-            program.command(cmd.name).description(cmd.desc);
+            pro.command(cmd.name).description(cmd.desc);
         });
     } else {
         var cmd = CommandEngine.getCmdByName(targetCmd);
         _currentCmd = cmd;
-        program
-            .usage(cmd.name + ' [options]')
-            .command(cmd.name).description(cmd.desc);
-        cmd.option.forEach(function(opt){
-            program.option(opt.sample, opt.desc, opt.defVal);
-        });
+        pro = program
+            .command(cmd.name)
+            .usage(' [options]')
+            .description(cmd.desc);
+        if (cmd.option) {
+            cmd.option.forEach(function(opt){
+                pro.option(opt.sample, opt.desc, opt.defVal);
+            });
+        }
     }
 
-    program.parse(proArg);
+    return pro;
+};
 
-    if (_flagHelp) {
-        _help();
-    }
+var _getCommander = function(){
+    return program;
 };
 
 var _getCurrentCmd = function(){
@@ -55,12 +62,13 @@ var _isTriggerHelp = function(){
 }
 
 var _help = function(){
-    program.help();
+    pro.help();
 };
 
 module.exports = {
     init: _init,
     getCurrentCmd: _getCurrentCmd,
+    getCommander: _getCommander,
     help: _help,
     isTriggerHelp: _isTriggerHelp
 };

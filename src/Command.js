@@ -9,18 +9,18 @@ var Command = function(name, desc, option, handler, children){
     this.children = children || [];
 };
 
-Command.prototype.exec = function() {
-    var handlerReturn = this.handler(this);
+Command.prototype.exec = function(commander, proArg) {
+    var handlerReturn = this.handler(commander, proArg);
     var _children = this.children;
     if (handlerReturn && handlerReturn.then){
         return handlerReturn.then(function(){
             return Util.arrForInPromise(_children, function(child, index){
-                return child.exec();
+                return child.exec(commander, proArg);
             });
         });
     } else {
         return Util.arrForInPromise(_children, function(child, index){
-            return child.exec();
+            return child.exec(commander, proArg);
         });
     }
 };

@@ -14,14 +14,30 @@ module.exports = {
         CommandEngine.combine(clis);
         
         //initial the command line
-        CommandLine.init(conf.version, proArg);
+        var commander = CommandLine.init(conf.version, proArg);
+        var oriCommander = CommandLine.getCommander();
         
         //get the triggered command
         var cmd = CommandLine.getCurrentCmd();
         
-        if (cmd && !CommandLine.isTriggerHelp()){
-            cmd.exec();
+        if (cmd) {
+            //get commander controlling right to plugin
+            if (cmd.option === null) {
+                cmd.exec(commander, proArg);
+                oriCommander.parse(proArg);
+                if (CommandLine.isTriggerHelp()) {
+                    CommandLine.help();
+                }
+            } else {
+                commander.parse(proArg);
+                if (CommandLine.isTriggerHelp()) {
+                    CommandLine.help();
+                } else {
+                    cmd.exec(commander, proArg);
+                }
+            }
         } else {
+            oriCommander.parse(proArg);
             CommandLine.help();
         }
     }

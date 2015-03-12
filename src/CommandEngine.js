@@ -31,6 +31,12 @@ var _register = function(name, desc, option, handler, children){
         var children = children;
         var childrenCmd = [];
 
+        if (typeof option === 'function') {
+            children = handler;
+            handler = option;
+            option = null;
+        }
+
         //get the child command object
         if (children && children.length){
             children.forEach(function(childName, index){
@@ -56,10 +62,10 @@ var _register = function(name, desc, option, handler, children){
  * @param  {String} name command name
  * @return {Promise|void}
  */
-var _exec = function(name){
+var _exec = function(name, commander, proArg){
     var cmd = _getCmdByName(name);
     if (cmd) {
-        return cmd.exec();
+        return cmd.exec(commander, proArg);
     } else {
         throw new Error('The command [' + name + '] is not exist!');
     }

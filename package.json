@@ -1,29 +1,35 @@
 {
-    "name": "clitoolkit",
-    "version": "0.0.2",
-    "description": "The command line toolkit",
-    "main": "src/main.js",
-    "scripts": {
-        "test": "./test/test --help"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/lujintan/clitoolkit.git"
-    },
-    "keywords": [
-        "toolkit",
-        "command",
-        "cli"
-    ],
-    "auth": "lujintan",
-    "email": "yingxuetan@163.com",
-    "license": "https://github.com/lujintan/clitoolkit/blob/master/LICENSE",
-    "bugs": {
-        "url": "https://github.com/lujintan/clitoolkit/issues"
-    },
-    "homepage": "https://github.com/lujintan/clitoolkit",
-    "dependencies": {
-        "commander": "2.6.0",
-        "q": "1.2.0"
-    }
+  "name": "clitoolkit",
+  "version": "0.0.13",
+  "description": "The command line toolkit",
+  "main": "src/main.js",
+  "scripts": {
+    "test": "./test/test --help"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/lujintan/clitoolkit.git"
+  },
+  "keywords": [
+    "toolkit",
+    "command",
+    "cli"
+  ],
+  "auth": "lujintan",
+  "email": "yingxuetan@163.com",
+  "license": "https://github.com/lujintan/clitoolkit/blob/master/LICENSE",
+  "bugs": {
+    "url": "https://github.com/lujintan/clitoolkit/issues"
+  },
+  "homepage": "https://github.com/lujintan/clitoolkit",
+  "dependencies": {
+    "commander": "2.6.0",
+    "q": "1.2.0"
+  },
+  "readme": "# clitookit\nThe command line toolkit\n\n###Installation\n\n```bash\nnpm install clitoolkit\n```\n",
+  "readmeFilename": "README.md",
+  "gitHead": "f701ee6e1c15321b555644ad98e85ddef9146560",
+  "_id": "clitoolkit@0.0.11",
+  "_shasum": "cfd16ac8646ace067e3a892bdc9b736d353fcc2b",
+  "_from": "clitoolkit@0.0.11"
 }
